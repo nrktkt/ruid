@@ -29,8 +29,9 @@ public class RUIDTest {
 
 		List<RUID> shuffled = new ArrayList<>(sorted);
 		Collections.shuffle(shuffled);
+		Collections.sort(shuffled);
 
-		assertEquals(sorted, shuffled.stream().sorted().collect(toList()));
+		assertEquals(sorted, shuffled);
 	}
 
 

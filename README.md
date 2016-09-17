@@ -1,4 +1,10 @@
 # ruid
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7bc6ce8fd90a44d59f398b1b4f39bba1)](https://www.codacy.com/app/nfischer921/ruid?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kag0/ruid&amp;utm_campaign=Badge_Grade)  
+[![Build Status](https://travis-ci.org/kag0/ruid.svg?branch=master)](https://travis-ci.org/kag0/ruid)  
+[![codecov](https://codecov.io/gh/kag0/ruid/branch/master/graph/badge.svg)](https://codecov.io/gh/kag0/ruid)  
+
+
 Random Universal/Unique ID
 RUIDs are uniformly distributed, are 24 URI-safe ASCII characters when encoded,
 and are unique by 18 random bytes. They look like this: `9uZIuRrbPRl71PiRAmUID9xd`.

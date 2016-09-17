@@ -88,7 +88,7 @@ public class RUID implements Comparable<RUID>, Serializable{
 	public String encoded(){
 		if(encoded != null)
 			return encoded;
-		encoded = Base64.getEncoder().encodeToString(bytes);
+		encoded = Base64.getUrlEncoder().encodeToString(bytes);
 		return encoded;
 	}
 
@@ -114,13 +114,17 @@ public class RUID implements Comparable<RUID>, Serializable{
 
 	@Override
 	public int compareTo(RUID o) {
-		if(this == o || this.bytes == o.bytes || this.encoded == o.encoded)
-			return 0;
-
-		for(int i = 0; i < BINARY_SIZE; i++){
-			int res = this.bytes[i] - o.bytes[i];
-			if(res != 0)
-				return res;
+		if(!(
+				this == o
+				|| this.bytes == o.bytes
+				|| (this.encoded != null
+					&& this.encoded == o.encoded)
+		)) {
+			for (int i = 0; i < BINARY_SIZE; i++) {
+				int res = this.bytes[i] - o.bytes[i];
+				if (res != 0)
+					return res;
+			}
 		}
 		return 0;
 	}
