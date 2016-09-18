@@ -5,7 +5,6 @@
 [![](https://jitpack.io/v/kag0/ruid.svg)](https://jitpack.io/#kag0/ruid)  
 [![codecov](https://codecov.io/gh/kag0/ruid/branch/master/graph/badge.svg)](https://codecov.io/gh/kag0/ruid)  
 
-Random Universal/Unique ID
 RUIDs are uniformly distributed, are 24 URI-safe ASCII characters when encoded,
 and are unique by 18 random bytes. They look like this: `9uZIuRrbPRl71PiRAmUID9xd`.
 

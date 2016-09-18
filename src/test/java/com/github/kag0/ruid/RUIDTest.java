@@ -1,15 +1,16 @@
 package com.github.kag0.ruid;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by nfischer on 9/17/2016.
@@ -34,6 +35,17 @@ public class RUIDTest {
 		assertEquals(sorted, shuffled);
 	}
 
+	@Test
+	public void json() throws IOException {
+		ObjectMapper mapper = new ObjectMapper();
+
+		RUID original = RUID.generate();
+		String json = mapper.writeValueAsString(original);
+		System.out.println(json);
+		RUID deserialized = mapper.readValue(json, RUID.class);
+		System.out.println(deserialized);
+		assertEquals(original, deserialized);
+	}
 
 
 }
