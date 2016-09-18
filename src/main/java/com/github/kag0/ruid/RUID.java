@@ -1,5 +1,8 @@
 package com.github.kag0.ruid;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
 import java.io.Serializable;
 import java.security.SecureRandom;
 import java.util.Arrays;
@@ -14,6 +17,7 @@ import static java.util.Objects.requireNonNull;
  * and are unique by 18 bytes of entropy.
  * Created by nfischer on 9/17/2016.
  */
+@JsonSerialize(using = ToStringSerializer.class)
 public class RUID implements Comparable<RUID>, Serializable{
 	public static final int BINARY_SIZE = 18;
 	private static final Random RANDOM = new SecureRandom();
