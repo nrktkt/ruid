@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class RUIDTest {
 	@Test
-	public void parse() throws Exception {
+	public void parse() {
 		RUID gen = RUID.generate();
 		System.out.println(gen);
 		assertEquals(gen, RUID.parse(gen.toString()));
