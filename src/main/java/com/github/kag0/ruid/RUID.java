@@ -20,7 +20,7 @@ import static java.util.Objects.requireNonNull;
 @JsonSerialize(using = ToStringSerializer.class)
 public class RUID implements Comparable<RUID>, Serializable{
 	public static final int BINARY_SIZE = 18;
-	private static final Random RANDOM = new SecureRandom();
+	private static final ThreadLocal<Random> RANDOM = ThreadLocal.withInitial(SecureRandom::new);
 
 	private byte[] bytes;
 	private String encoded;
@@ -53,7 +53,7 @@ public class RUID implements Comparable<RUID>, Serializable{
 
 	public static RUID generate(){
 		byte[] bs = new byte[BINARY_SIZE];
-		RANDOM.nextBytes(bs);
+		RANDOM.get().nextBytes(bs);
 		RUID ruid = new RUID();
 		ruid.bytes = bs;
 		return ruid;
